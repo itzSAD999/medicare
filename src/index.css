@@ -1,0 +1,289 @@
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 20% 99%;
+    --foreground: 200 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 10%;
+
+    --primary: 168 80% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 25% 95%;
+    --secondary-foreground: 200 25% 20%;
+
+    --muted: 180 15% 95%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 16 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 180 20% 90%;
+    --input: 180 20% 90%;
+    --ring: 168 80% 32%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 168 80% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 180 25% 95%;
+    --sidebar-accent-foreground: 200 25% 20%;
+    --sidebar-border: 180 20% 90%;
+    --sidebar-ring: 168 80% 32%;
+
+    /* Custom MedMind tokens */
+    --status-taken: 152 76% 36%;
+    --status-missed: 0 72% 51%;
+    --status-pending: 38 92% 50%;
+    --status-upcoming: 200 20% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(168 80% 32%) 0%, hsl(180 70% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(180 20% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(168 80% 32%) 0%, hsl(180 60% 35%) 50%, hsl(200 50% 40%) 100%);
+
+    --shadow-soft: 0 2px 8px -2px hsl(200 25% 10% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(200 25% 10% / 0.12);
+    --shadow-elevated: 0 8px 32px -8px hsl(200 25% 10% / 0.16);
+  }
+
+  .dark {
+    --background: 200 25% 8%;
+    --foreground: 180 20% 95%;
+
+    --card: 200 25% 12%;
+    --card-foreground: 180 20% 95%;
+
+    --popover: 200 25% 12%;
+    --popover-foreground: 180 20% 95%;
+
+    --primary: 168 70% 45%;
+    --primary-foreground: 200 25% 8%;
+
+    --secondary: 200 20% 18%;
+    --secondary-foreground: 180 20% 90%;
+
+    --muted: 200 20% 18%;
+    --muted-foreground: 180 15% 55%;
+
+    --accent: 16 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 65% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 85% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 168 70% 45%;
+
+    --sidebar-background: 200 25% 10%;
+    --sidebar-foreground: 180 20% 90%;
+    --sidebar-primary: 168 70% 45%;
+    --sidebar-primary-foreground: 200 25% 8%;
+    --sidebar-accent: 200 20% 18%;
+    --sidebar-accent-foreground: 180 20% 90%;
+    --sidebar-border: 200 20% 20%;
+    --sidebar-ring: 168 70% 45%;
+
+    --status-taken: 152 65% 40%;
+    --status-missed: 0 65% 45%;
+    --status-pending: 38 85% 45%;
+    --status-upcoming: 200 20% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(168 70% 40%) 0%, hsl(180 60% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(200 25% 12%) 0%, hsl(200 25% 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(168 70% 35%) 0%, hsl(180 55% 40%) 50%, hsl(200 45% 35%) 100%);
+
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-card-elevated {
+    @apply bg-card/90 backdrop-blur-md border border-border/50;
+    box-shadow: var(--shadow-medium);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .status-taken {
+    @apply bg-[hsl(var(--status-taken))] text-[hsl(var(--success-foreground))];
+  }
+
+  .status-missed {
+    @apply bg-[hsl(var(--status-missed))] text-[hsl(var(--destructive-foreground))];
+  }
+
+  .status-pending {
+    @apply bg-[hsl(var(--status-pending))] text-[hsl(var(--warning-foreground))];
+  }
+
+  .status-upcoming {
+    @apply bg-[hsl(var(--status-upcoming))] text-white;
+  }
+}
+
+@layer components {
+  .medication-card {
+    @apply relative overflow-hidden rounded-2xl p-4 transition-all duration-300;
+    @apply hover:shadow-lg hover:-translate-y-0.5;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all duration-200;
+    @apply text-muted-foreground hover:text-foreground hover:bg-secondary;
+  }
+
+  .nav-item-active {
+    @apply text-primary bg-primary/10;
+  }
+
+  .stat-card {
+    @apply rounded-2xl p-5 transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .pill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
